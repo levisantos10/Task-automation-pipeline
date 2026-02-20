@@ -60,5 +60,19 @@ const deleteTask = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+// Ativar/Desativar Tarefa
 
-module.exports = { getAllTasks, getTaskById, createTask, updateTask, deleteTask };
+const toggleTaskStatus = async (req, res) => {
+  try {
+    const { is_active } = req.body;
+    await pool.query(
+      'UPDATE tasks SET is_active = ? WHERE id = ?',
+      [is_active, req.params.id]
+    );
+    res.json({ success: true, message: 'Status da tarefa atualizado!' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+module.exports = { getAllTasks, getTaskById, createTask, updateTask, deleteTask,  toggleTaskStatus };
