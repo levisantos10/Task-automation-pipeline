@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Automation Pipeline - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🤖 Task Automation Pipeline</h1>
+            <p>Sistema de automação de tarefas</p>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-info">
+                    <h3 id="activeTasks">-</h3>
+                    <p>Tarefas Ativas</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">▶️</div>
+                <div class="stat-info">
+                    <h3 id="totalExecutions">-</h3>
+                    <p>Total de Execuções</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3 id="successCount">-</h3>
+                    <p>Execuções com Sucesso</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <h3 id="successRate">-</h3>
+                    <p>Taxa de Sucesso</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-grid">
+            <!-- Tasks Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>📋 Tarefas Cadastradas</h2>
+                    <button class="btn-refresh" onclick="loadTasks()">🔄 Atualizar</button>
+                </div>
+                <div id="tasksList" class="list">
+                    <p class="loading">Carregando tarefas...</p>
+                </div>
+            </section>
+
+            <!-- Executions Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>⚡ Últimas Execuções</h2>
+                    <button class="btn-refresh" onclick="loadExecutions()">🔄 Atualizar</button>
+                </div>
+                <div id="executionsList" class="list">
+                    <p class="loading">Carregando execuções...</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Desenvolvido com Python + Node.js + MySQL | <a href="https://github.com" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
